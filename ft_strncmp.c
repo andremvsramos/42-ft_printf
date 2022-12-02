@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_main.c                                   :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 12:00:35 by andvieir          #+#    #+#             */
-/*   Updated: 2022/12/02 12:09:03 by andvieir         ###   ########.fr       */
+/*   Created: 2022/11/02 14:17:51 by andvieir          #+#    #+#             */
+/*   Updated: 2022/11/29 12:18:22 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	main()
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	/*char	*i = "42 Porto";
-	int		a = 2, hex = 3, u = -12;*/
-	int		total, totalog;
+	unsigned int	i;
 
-	total = ft_printf("FT %-1X \n", 0);
-	totalog = printf("OG %-1X \n", 0);
-	printf("\n");
-	//printf(" NULL %s NULL ", NULL);
-	//total = ft_printf("NULL %s NULL", NULL);
-	printf("OG    PRINTED: %d\n", totalog);
-	printf("TOTAL PRINTED: %d\n", total);
-	return 0;
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		i++;
+	}
+	return (0);
 }

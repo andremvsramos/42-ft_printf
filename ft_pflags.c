@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_main.c                                   :+:      :+:    :+:   */
+/*   ft_pflags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 12:00:35 by andvieir          #+#    #+#             */
-/*   Updated: 2022/12/02 12:09:03 by andvieir         ###   ########.fr       */
+/*   Created: 2022/11/30 13:45:46 by andvieir          #+#    #+#             */
+/*   Updated: 2022/11/30 14:59:07 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	main()
+void	ft_pointer_flags(int *flags, int n, t_sc *sc)
 {
-	/*char	*i = "42 Porto";
-	int		a = 2, hex = 3, u = -12;*/
-	int		total, totalog;
+	int	i;
 
-	total = ft_printf("FT %-1X \n", 0);
-	totalog = printf("OG %-1X \n", 0);
-	printf("\n");
-	//printf(" NULL %s NULL ", NULL);
-	//total = ft_printf("NULL %s NULL", NULL);
-	printf("OG    PRINTED: %d\n", totalog);
-	printf("TOTAL PRINTED: %d\n", total);
-	return 0;
+	i = 0;
+	if (flags[5])
+		if (n < sc->ammount)
+			while (i++ < sc->ammount - n - 2)
+				ft_putchar(' ', sc);
 }

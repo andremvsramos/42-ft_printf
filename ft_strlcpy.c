@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_main.c                                   :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 12:00:35 by andvieir          #+#    #+#             */
-/*   Updated: 2022/12/02 12:09:03 by andvieir         ###   ########.fr       */
+/*   Created: 2022/11/02 14:04:23 by andvieir          #+#    #+#             */
+/*   Updated: 2022/11/29 12:18:19 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	main()
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	/*char	*i = "42 Porto";
-	int		a = 2, hex = 3, u = -12;*/
-	int		total, totalog;
+	size_t	i;
+	size_t	c;
 
-	total = ft_printf("FT %-1X \n", 0);
-	totalog = printf("OG %-1X \n", 0);
-	printf("\n");
-	//printf(" NULL %s NULL ", NULL);
-	//total = ft_printf("NULL %s NULL", NULL);
-	printf("OG    PRINTED: %d\n", totalog);
-	printf("TOTAL PRINTED: %d\n", total);
-	return 0;
+	i = 0;
+	c = ft_strlen((char *)src);
+	if (!size)
+		return (c);
+	while (src[i] && (i < size - 1))
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (c);
 }

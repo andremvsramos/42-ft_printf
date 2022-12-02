@@ -6,11 +6,11 @@
 /*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:34:31 by andvieir          #+#    #+#             */
-/*   Updated: 2022/11/21 17:35:21 by andvieir         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:27:28 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_itoa(int nbr)
 {
@@ -34,25 +34,37 @@ char	*ft_itoa(int nbr)
 	return (str);
 }
 
-char	*ft_zeros_to_print(char	*str, int index, int flag)
+char	*ft_uitoa(unsigned int nbr)
 {
-	int		result;
-	int		i;
-	char	*line;
+	int		len;
+	char	*str;
 
-	i = 0;
-	result = 0;
-	while (ft_isdigit(str[index]))
-		result = result * 10 + (str[index++] - 48);
-	line = (char *)malloc(sizeof(char) * result + 1);
-	if (!line)
+	len = ft_ui_nbrlen(nbr);
+	str = (char *)malloc(sizeof(char) * len + 1);
+	if (!str)
 		return (NULL);
-	if (flag == 1)
-		while (i < result - 2)
-			line[i++] = '0';
-	else if (flag == 4)
-		while (i < result - 2)
-			line[i++] = ' ';
-	line[i] = '\0';
-	return (line);
+	str[len] = '\0';
+	if (nbr == 0)
+		str[0] = '0';
+	while (nbr != 0)
+	{
+		str[--len] = ft_abs(nbr % 10) + 48;
+		nbr = nbr / 10;
+	}
+	return (str);
+}
+
+int	ft_ui_nbrlen(unsigned int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len);
 }

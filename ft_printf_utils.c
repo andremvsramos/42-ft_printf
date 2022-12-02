@@ -6,15 +6,20 @@
 /*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:12:52 by andvieir          #+#    #+#             */
-/*   Updated: 2022/11/21 16:45:21 by andvieir         ###   ########.fr       */
+/*   Updated: 2022/12/02 11:44:45 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c, t_sc *sc)
 {
+	int	i;
+
+	i = 0;
 	write(1, &c, 1);
+	sc->len++;
+	return (1);
 }
 
 int	ft_abs(int nbr)
@@ -50,7 +55,21 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-void	ft_putunsigned(unsigned int nbr)
+void	ft_putunsigned(unsigned int nbr, int *flags, t_sc *sc)
 {
-	ft_putnbr(nbr);
+	char	*uns_int;
+	int		i;
+
+	i = 0;
+	uns_int = ft_uitoa(nbr);
+	if (!flags[5])
+		ft_putstr(uns_int);
+	else
+	{
+		ft_putstr(uns_int);
+		while (i++ < sc->ammount - ft_strlen(uns_int))
+			ft_putchar(' ', sc);
+	}
+	sc->len += ft_strlen(uns_int);
+	free(uns_int);
 }
