@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 11:12:09 by andvieir          #+#    #+#             */
-/*   Updated: 2022/12/02 12:05:38 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:33:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,25 @@
 # include <stdio.h>
 # include <limits.h>
 
+/**
+ * @brief ANSI escape code to clear the current line and move the cursor to the
+ * beginning.
+ *
+ * This preprocessor macro defines an ANSI escape code used to clear the current
+ * line and move the cursor to the beginning of the line. It is often used to
+ * overwrite the contents of a line with new content, creating a visual update
+ * effect.
+ */
 # define CLEAR_TXT "\33[2K\r"
 
+/**
+ * @brief Structure to hold control data for custom printf implementation.
+ *
+ * This structure is used to hold control data for a custom printf
+ * implementation. It stores information related to length counters,
+ * formatting options, and other data needed to handle printing and formatting
+ * operations.
+ */
 typedef	struct	s_sc
 {
 	int		len;

@@ -3,15 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_processing.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 11:42:21 by andvieir          #+#    #+#             */
-/*   Updated: 2022/11/30 13:35:21 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:39:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * @brief Process and print formatted strings with various options.
+ *
+ * This function processes and prints formatted strings based on the input
+ * string `str` and various formatting options controlled by the integer array
+ * `flags`.
+ * The control data structure `sc` is used to track and manage information about
+ * the printing process.
+ *
+ * @param str     The input string to be processed and printed.
+ * @param flags   An array of integer flags controlling formatting options.
+ * @param sc      A pointer to the control data structure.
+ */
 void	ft_strings(char *str, int *flags, t_sc *sc)
 {
 	char	*dest;
@@ -63,6 +76,18 @@ void	ft_strings(char *str, int *flags, t_sc *sc)
 	free(dest);
 }
 
+/**
+ * @brief Copies the source string to the destination with padding handling.
+ *
+ * This function copies the source string `str` to the destination `dest` with
+ * padding handling based on the width and pre-dot width from the control
+ * structure `sc`.
+ *
+ * @param dest   The destination string with padding.
+ * @param str    The source string to be copied.
+ * @param sc     A pointer to the control data structure.
+ * @return       The modified destination string.
+ */
 char	*ft_minmax(char *dest, char *str, t_sc *sc)
 {
 	if (sc->wd_size == sc->pre_dot_ammount)
@@ -83,6 +108,16 @@ char	*ft_minmax(char *dest, char *str, t_sc *sc)
 	return (dest);
 }
 
+/**
+ * @brief Calculates the size based on width delimitation and formatting options.
+ *
+ * This function calculates the size for formatting based on the width delimitation,
+ * the source string length `str_len`, and the control data structure `sc`.
+ *
+ * @param sc        A pointer to the control data structure.
+ * @param str_len   The length of the source string.
+ * @return          The calculated size for formatting.
+ */
 int	ft_size_delimitation(t_sc *sc, int str_len)
 {
 	int	size;
@@ -107,6 +142,15 @@ int	ft_size_delimitation(t_sc *sc, int str_len)
 	return (size);
 }
 
+/**
+ * @brief Checks the pre-dot width from the format string.
+ *
+ * This function checks the pre-dot width from the format string `s` and updates
+ * the pre-dot width in the control data structure `sc`.
+ *
+ * @param s   The format string.
+ * @param sc  A pointer to the control data structure.
+ */
 void	ft_check_pre_dot_ammount(const char *s, t_sc *sc)
 {
 	int			temp;
@@ -136,6 +180,19 @@ void	ft_check_pre_dot_ammount(const char *s, t_sc *sc)
 	dot = temp;
 }
 
+/**
+ * @brief Applies left-justification padding and handles destination string.
+ *
+ * This function applies left-justification padding to the destination `dest`
+ * based on the source string `str`, formatting flags, and the control data
+ * structure `sc`.
+ *
+ * @param dest   The destination string with padding.
+ * @param str    The source string to be copied.
+ * @param flags  An array of integer flags controlling formatting options.
+ * @param sc     A pointer to the control data structure.
+ * @return       The modified destination string.
+ */
 char	*ft_string_minus_flag(char *dest, char *str, int *flags, t_sc *sc)
 {
 	if (flags[6])

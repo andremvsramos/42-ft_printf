@@ -3,15 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:38:38 by andvieir          #+#    #+#             */
-/*   Updated: 2022/11/21 14:23:38 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:08:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+/**
+ * @brief Convert a string representation of an integer to an integer value.
+ *
+ * This function takes a string `str` and converts it into an integer value.
+ * It skips leading whitespace characters, handles the sign (+/-) of the number,
+ * and processes valid digit characters to calculate the integer value.
+ * The ASCII digit characters are converted to their corresponding integer
+ * values using a simple calculation. The function uses a loop to iterate over
+ * the characters of the string until a non-digit character is encountered.
+ * The final integer result is then multiplied by the determined sign and
+ * returned.
+ *
+ * @param str Pointer to the input string to be converted.
+ * @return The integer value represented by the input string.
+ */
 int	ft_atoi(const char *str)
 {
 	int	i;

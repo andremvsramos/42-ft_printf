@@ -3,15 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:30:48 by andvieir          #+#    #+#             */
-/*   Updated: 2022/11/30 12:02:22 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:34:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * @brief Read and process format specifiers in the format string.
+ *
+ * This function reads and processes format specifiers in the format string `s`.
+ * It handles flags, field width, precision, and data conversion specifiers. It
+ * updates the `flags` and `sc` structures accordingly. If a '%' character is
+ * encountered, it extracts and processes the format specifiers and delegates
+ * data conversion using other functions. If no format specifier is found, it
+ * prints the character directly.
+ *
+ * @param valist   The va_list containing variable arguments.
+ * @param s        The format string to be processed.
+ * @param flags    An array of integer flags controlling formatting options.
+ * @param sc       A pointer to a structure that contains additional control
+ * data.
+ * @return         A pointer to the next character in the format string.
+ */
 char	*ft_read(va_list valist, const char *s, int *flags, t_sc *sc)
 {
 	char *aux;
