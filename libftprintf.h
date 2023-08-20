@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andvieir <andvieir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 11:12:09 by andvieir          #+#    #+#             */
-/*   Updated: 2022/11/21 17:08:31 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:41:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
+//
 int		ft_printf(const char *s, ...);
 void	ft_check_data(int ptr, va_list valist, int flag, char *line);
 void	ft_putchar(char c);
